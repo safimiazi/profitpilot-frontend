@@ -1,24 +1,97 @@
 @import "tailwindcss";
 
+/* ----------------------------------------------------
+   Default (Light Mode) Variables
+---------------------------------------------------- */
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* BRAND PRIMARY COLOR */
+  --primary: #7f13ec;
+  --primary-hover: #6c0fcb;
+
+  /* Optional Shades (use if needed) */
+  --primary-foreground: #ffffff;
+
+  /* Fonts */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* MULTIPLE THEMES */
+/* Green Theme */
+[data-theme="green"] {
+  --primary: #22c55e;
 }
 
+/* Purple Theme */
+[data-theme="purple"] {
+  --primary: #a855f7;
+}
+
+/* Blue Theme */
+[data-theme="blue"] {
+  --primary: #3b82f6;
+}
+
+/* Orange Theme */
+[data-theme="orange"] {
+  --primary: #f97316;
+}
+
+/* ----------------------------------------------------
+   Tailwind CSS Theme Bindings
+---------------------------------------------------- */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+/* ----------------------------------------------------
+   Dark Mode Variables
+---------------------------------------------------- */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+
+  /* Dark Mode Primary can be slightly lighter */
+  --primary: #9a45ff;
+  --primary-hover: #7f13ec;
+
+  --primary-foreground: #ffffff;
+}
+
+
+/* Dark Green */
+.dark[data-theme="green"] {
+  --primary: #16a34a;
+  --primary-hover: #15803d;
+}
+
+/* Dark Purple */
+.dark[data-theme="purple"] {
+  --primary: #9333ea;
+  --primary-hover: #7e22ce;
+}
+
+.dark[data-theme="blue"] {
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+}
+
+.dark[data-theme="orange"] {
+  --primary: #ea580c;
+  --primary-hover: #c2410c;
+}
+
+/* ----------------------------------------------------
+   Default Body Setup
+---------------------------------------------------- */
 body {
   background: var(--background);
   color: var(--foreground);

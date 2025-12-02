@@ -1,51 +1,62 @@
+// hooks/useThemeClasses.ts
+
 import { useTheme } from "@/context/ThemeContext";
-import { use } from "react"
 
-const useThemeClasses = () => {
-    const theme = useTheme();
+export function useThemeClasses() {
+  const { theme } = useTheme();
 
-    return {
-        // Layout classes
-        layout: `min-h-screen bg-gradient-to-br from-[${theme.colors.background.gradient.from}] to-[${theme.colors.background.gradient.to}] flex items-center justify-center p-4`,
-
-        // Container classes
-        container: `w-full max-w-[${theme.spacing.container.maxWidth}] mx-auto`,
-
-        // Card classes
-        card: `bg-${theme.colors.background.card} rounded-${theme.borderRadius.large} shadow-${theme.shadows.card} p-8`,
-
-        // Header classes
-        header: `text-center mb-${theme.spacing.section.marginBottom}`,
-        title: `text-${theme.typography.h1.size} font-${theme.typography.h1.weight} text-${theme.colors.text.primary} mb-2`,
-        subtitle: `text-${theme.colors.text.secondary} mb-6`,
-        sectionTitle: `text-${theme.typography.h2.size} font-${theme.typography.h2.weight} text-${theme.colors.text.primary}`,
-
-        // Text classes
-        text: {
-            primary: `text-${theme.colors.text.primary}`,
-            secondary: `text-${theme.colors.text.secondary}`,
-            light: `text-${theme.colors.text.light}`,
-            link: `text-${theme.colors.primary[600]} hover:text-${theme.colors.primary[500]} font-medium`,
-        },
-
-        // Form classes
-        form: {
-            label: `block text-${theme.typography.small.size} font-medium text-${theme.colors.text.primary} mb-2`,
-            input: `w-full px-4 py-3 border border-${theme.colors.border.default} rounded-${theme.borderRadius.small} focus:ring-2 focus:ring-${theme.colors.primary[500]} focus:border-${theme.colors.primary[500]} transition-colors`,
-            inputGroup: `mb-${theme.spacing.input.marginBottom}`,
-        },
-
-        // Button classes
-        button: {
-            primary: `w-full bg-${theme.colors.primary[600]} text-white py-3 px-4 rounded-${theme.borderRadius.small} hover:bg-${theme.colors.primary[700]} focus:ring-2 focus:ring-${theme.colors.primary[500]} focus:ring-offset-2 transition-colors font-medium`,
-            secondary: `w-full border border-${theme.colors.border.default} text-${theme.colors.text.primary} py-3 px-4 rounded-${theme.borderRadius.small} hover:bg-gray-50 focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-colors font-medium flex items-center justify-center gap-3`,
-        },
-
-        // Divider classes
-        divider: `relative flex items-center my-6`,
-        dividerLine: `flex-grow border-t border-${theme.colors.border.default}`,
-        dividerText: `flex-shrink mx-4 text-${theme.colors.text.light} text-${theme.typography.small.size}`,
-    };
+  return {
+    // Layout classes
+    layout: `min-h-screen bg-gradient-to-br ${
+      theme.mode === 'dark' 
+        ? 'from-gray-900 to-indigo-950' 
+        : 'from-blue-50 to-indigo-100'
+    } flex items-center justify-center p-4 transition-colors duration-200`,
+    
+    // Card classes
+    card: `${
+      theme.mode === 'dark' 
+        ? 'bg-gray-800 border-gray-700' 
+        : 'bg-white border-gray-100'
+    } rounded-2xl shadow-xl p-8 border transition-colors duration-200`,
+    
+    // Text classes
+    text: {
+      primary: theme.mode === 'dark' ? 'text-gray-50' : 'text-gray-900',
+      secondary: theme.mode === 'dark' ? 'text-gray-300' : 'text-gray-600',
+      light: theme.mode === 'dark' ? 'text-gray-400' : 'text-gray-500',
+      link: `${
+        theme.mode === 'dark' 
+          ? 'text-blue-400 hover:text-blue-300' 
+          : 'text-blue-600 hover:text-blue-500'
+      } font-semibold transition-colors duration-200`,
+    },
+    
+    // Button classes
+    button: {
+      primary: `w-full ${
+        theme.mode === 'dark' 
+          ? 'bg-blue-600 hover:bg-blue-700' 
+          : 'bg-blue-600 hover:bg-blue-700'
+      } text-white font-bold py-3.5 px-4 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg`,
+      
+      secondary: `w-full border-2 ${
+        theme.mode === 'dark' 
+          ? 'border-gray-600 hover:border-gray-500 text-gray-200' 
+          : 'border-gray-300 hover:border-gray-400 text-gray-800'
+      } font-semibold py-3.5 px-4 rounded-xl transition-all duration-200 flex items-center justify-center gap-3 shadow-sm hover:shadow`,
+    },
+    
+    // Input classes
+    input: `w-full px-4 py-3.5 border-2 rounded-xl focus:ring-2 focus:outline-none transition-all duration-200 ${
+      theme.mode === 'dark' 
+        ? 'border-gray-700 bg-gray-800 text-gray-100 placeholder:text-gray-400 focus:border-blue-500 focus:ring-blue-900' 
+        : 'border-gray-200 bg-white text-gray-700 placeholder:text-gray-400 focus:border-blue-500 focus:ring-blue-200'
+    }`,
+    
+    // Divider
+    divider: `my-8 border-t ${
+      theme.mode === 'dark' ? 'border-gray-700' : 'border-gray-300'
+    } transition-colors duration-200`,
+  };
 }
-
-export default useThemeClasses;

@@ -1,43 +1,67 @@
-'use client';
+"use client";
 
-import { Theme, theme } from "@/lib/theme";
-import { createContext, ReactNode, useContext } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
+interface ThemeContextProps {
+  theme: "light" | "dark";
+  toggleTheme: () => void;
 
-
-const ThemeContext = createContext<Theme>(theme);
-
-interface ThemeProviderProps {
-    children: ReactNode,
-    customTheme?: Partial<Theme>
+  currentThemeColor: string;
+  setTheme: (themeName: string) => void;
 }
 
-export function ThemeProvider({ children, customTheme }: ThemeProviderProps) {
-    const mergedTheme = {
-        ...theme,
-        ...customTheme,
-        colors: {
-            ...theme.colors,
-            ...customTheme?.colors,
-        },
-        spacing: {
-            ...theme.spacing,
-            ...customTheme?.spacing
-        }
-    };
+const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 
-    return (
-        <ThemeContext.Provider value={mergedTheme}>
-            {children}
-        </ThemeContext.Provider>
-    )
-}
+export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+  // LIGHT / DARK
+  const [theme, setThemeMode] = useState<"light" | "dark">("dark");
 
+  // MULTIPLE PREDEFINED THEMES (green, purple, blue, orange...)
+  const [currentThemeColor, setCurrentThemeColor] = useState("orange"); // default theme
+
+  // Load saved theme from localStorage on mount
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("currentThemeColor");
+    const savedMode = localStorage.getItem("theme");
+    if (savedTheme) setCurrentThemeColor(savedTheme);
+    if (savedMode === "light" || savedMode === "dark") setThemeMode(savedMode);
+  }, []);
+
+  // Apply theme changes
+  useEffect(() => {
+    const root = document.documentElement;
+
+    // Light / Dark mode
+    if (theme === "dark") root.classList.add("dark");
+    else root.classList.remove("dark");
+
+    // Multiple theme
+    root.setAttribute("data-theme", currentThemeColor);
+
+    // Save user selection
+    localStorage.setItem("currentThemeColor", currentThemeColor);
+    localStorage.setItem("theme", theme);
+  }, [theme, currentThemeColor]);
+
+  const toggleTheme = () => setThemeMode(theme === "light" ? "dark" : "light");
+
+  return (
+    <ThemeContext.Provider
+      value={{
+        theme,
+        toggleTheme,
+
+        currentThemeColor,
+        setTheme: setCurrentThemeColor,
+      }}
+    >
+      {children}
+    </ThemeContext.Provider>
+  );
+};
 
 export const useTheme = () => {
-    const context = useContext(ThemeContext);
-    if (!context) {
-        throw new Error('useTheme must be used within a ThemeProvider');
-    }
-    return context;
-}
+  const ctx = useContext(ThemeContext);
+  if (!ctx) throw new Error("useTheme must be inside ThemeProvider");
+  return ctx;
+};
