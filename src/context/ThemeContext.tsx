@@ -17,7 +17,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [theme, setThemeMode] = useState<"light" | "dark">("dark");
 
   // MULTIPLE PREDEFINED THEMES (green, purple, blue, orange...)
-  const [currentThemeColor, setCurrentThemeColor] = useState("orange"); // default theme
+  const [currentThemeColor, setCurrentThemeColor] = useState("purple"); // default theme
 
   // Load saved theme from localStorage on mount
   useEffect(() => {
