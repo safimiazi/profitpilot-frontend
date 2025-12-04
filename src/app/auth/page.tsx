@@ -7,10 +7,10 @@ const AuthPage: React.FC = () => {
 
     return (
         <body className="font-display bg-background-light dark:bg-background-dark antialiased">
-            <ThemeToggle/>
+            {/* <ThemeToggle /> */}
             <div className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-x-hidden p-4 md:p-8">
-                <div className="absolute top-0 left-0 p-6 md:p-8">
-                    <header className="flex items-center gap-4 text-gray-800 dark:text-white">
+                <div className="absolute top-0 xl:left-36 p-6 md:p-8">
+                    <header className="flex items-center gap-4 text-gray-800 dark:text-foreground">
                         <div className="size-6 text-primary">
                             <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M24 4C25.7818 14.2173 33.7827 22.2182 44 24C33.7827 25.7818 25.7818 33.7827 24 44C22.2182 33.7827 14.2173 25.7818 4 24C14.2173 22.2182 22.2182 14.2173 24 4Z" fill="currentColor"></path>
@@ -24,10 +24,10 @@ const AuthPage: React.FC = () => {
                         {/* <!-- Left Column: Hero/Branding --> */}
                         <div className="hidden flex-col justify-center gap-8 text-left lg:flex">
                             <div className="flex flex-col gap-4">
-                                <h1 className="text-4xl font-black leading-tight tracking-tighter text-gray-900 dark:text-white xl:text-5xl">
+                                <h1 className="text-3xl font-black leading-tight tracking-tighter text-gray-900 dark:text-foreground     xl:text-4xl">
                                     Automate Your Messenger, Elevate Your Business
                                 </h1>
-                                <h2 className="text-base font-normal leading-normal text-gray-600 dark:text-gray-400 xl:text-lg">
+                                <h2 className="text-base font-normal leading-normal  dark:text-neutral-500 xl:text-lg">
                                     The AI-powered chatbot system to drive sales and delight customers on Facebook.
                                 </h2>
                             </div>
@@ -46,7 +46,7 @@ const AuthPage: React.FC = () => {
                             <div className="flex flex-col gap-6">
                                 <div className="flex flex-col gap-2">
                                     <p className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Sign In</p>
-                                    <p className="text-base font-normal text-gray-500 dark:text-gray-400">
+                                    <p className="text-base font-normal text-neutral-500  ">
                                         New to ProfitPilot? <a className="font-medium text-primary hover:underline" href="#">Create an account</a>
                                     </p>
                                 </div>
@@ -54,14 +54,14 @@ const AuthPage: React.FC = () => {
                                 <div className="flex flex-col gap-5">
                                     <label className="flex flex-col w-full">
                                         <p className="pb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Email Address</p>
-                                        <input className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm font-normal text-gray-900 placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-gray-700 dark:bg-background-dark dark:text-white dark:placeholder:text-gray-500" placeholder="Enter your email" value="" />
+                                        <input className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border border-gray-300 bg-background dark:bg-background px-4 py-3 text-sm font-normal text-gray-900 placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-gray-700  dark:text-white dark:placeholder:text-neutral-500 " placeholder="Enter your email" value="" />
                                     </label>
                                     <label className="flex flex-col w-full">
                                         <div className="flex items-center justify-between pb-2">
                                             <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Password</p>
                                             <a className="text-sm font-medium text-primary hover:underline" href="#">Forgot password?</a>
                                         </div>
-                                        <input className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm font-normal text-gray-900 placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-gray-700 dark:bg-background-dark dark:text-white dark:placeholder:text-gray-500" placeholder="Enter your password" type="password" value="" />
+                                        <input className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border border-gray-300 bg-background dark:bg-background  px-4 py-3 text-sm font-normal text-gray-900 placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-gray-700  dark:text-white dark:placeholder:text-neutral-500    " placeholder="Enter your password" type="password" value="" />
                                     </label>
                                     <button className="flex h-12 w-full items-center justify-center rounded-lg bg-primary px-6 text-base font-semibold text-white transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark">Sign In</button>
                                 </div>
@@ -70,7 +70,7 @@ const AuthPage: React.FC = () => {
                                         <div className="w-full border-t border-gray-300 dark:border-gray-700"></div>
                                     </div>
                                     <div className="relative flex justify-center text-sm">
-                                        <span className="bg-background-light dark:bg-background-dark px-2 text-gray-500 dark:text-gray-400">Or continue with</span>
+                                        <span className="bg-background-light dark:bg-background-dark px-2 text-neutral-500 ">Or continue with</span>
                                     </div>
                                 </div>
                                 <button className="flex h-12 w-full items-center justify-center gap-3 rounded-lg border border-gray-300 bg-white px-6 text-base font-semibold text-gray-800 transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 dark:border-gray-700 dark:bg-white/5 dark:text-white dark:hover:bg-white/10 dark:focus:ring-gray-500 dark:focus:ring-offset-background-dark">
