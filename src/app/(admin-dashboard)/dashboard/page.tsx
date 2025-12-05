@@ -1,6 +1,6 @@
 export default function Page() {
   return (
-    <div>
+    <div className="">
       <h1 className="text-2xl font-semibold mb-4">Dashboard Overview</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
