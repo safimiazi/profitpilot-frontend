@@ -1,13 +1,13 @@
 
 "use client";
 
-import Header from "@/components/dashboard/Header";
-import MobileSidebar from "@/components/dashboard/MobileSidebar";
-import Sidebar from "@/components/dashboard/Sidebar";
-import DesktopHeader from "@/components/dashboard/DesktopHeader";
+import Header from "@/components/user-dashboard/Header";
+import MobileSidebar from "@/components/user-dashboard/MobileSidebar";
+import Sidebar from "@/components/user-dashboard/Sidebar";
+import DesktopHeader from "@/components/user-dashboard/DesktopHeader";
 import { useState } from "react";
 
-export default function DashboardLayout({ children }: { children: React.ReactNode }) {
+export default function UserDashboardLayout({ children }: { children: React.ReactNode }) {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 

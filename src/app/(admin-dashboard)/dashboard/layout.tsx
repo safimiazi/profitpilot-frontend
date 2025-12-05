@@ -40,13 +40,13 @@
 // }
 "use client";
 
-import Header from "@/components/dashboard/Header";
-import MobileSidebar from "@/components/dashboard/MobileSidebar";
-import Sidebar from "@/components/dashboard/Sidebar";
-import DesktopHeader from "@/components/dashboard/DesktopHeader";
+import Header from "@/components/admin-dashboard/Header";
+import MobileSidebar from "@/components/admin-dashboard/MobileSidebar";
+import Sidebar from "@/components/admin-dashboard/Sidebar";
+import DesktopHeader from "@/components/admin-dashboard/DesktopHeader";
 import { useState } from "react";
 
-export default function DashboardLayout({ children }: { children: React.ReactNode }) {
+export default function AdminDashboardLayout({ children }: { children: React.ReactNode }) {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
