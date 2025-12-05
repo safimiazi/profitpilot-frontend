@@ -17,12 +17,20 @@
   /* Fonts */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --sidebar-bg: #ffffff;
+  --header-bg: #ffffff;
+  --border-color: #e5e7eb;
+  --main-bg: #f5f5f5;
+  --card-bg: #ffffff;
 }
+
 /* MULTIPLE THEMES */
 /* Green Theme */
 [data-theme="green"] {
   --primary: #22c55e;
 }
+
 
 /* Purple Theme */
 [data-theme="purple"] {
@@ -39,6 +47,121 @@
   --primary: #f97316;
 }
 
+
+
+/* ----------------------------------------------------
+   Dark Mode Variables
+---------------------------------------------------- */
+.dark {
+  --background: #191022;
+  --foreground: #ededed;
+  /* Dark Mode Primary can be slightly lighter */
+  --primary: #7f13ec;
+  --primary-hover: #7f13ec;
+  --primary-foreground: #ffffff;
+  --sidebar-bg: #1f0d2b;
+  --header-bg: #1f0d2b;
+  --card-bg: #1f0d2b;
+  --border-color: #101828;
+  --main-bg: #191022;
+}
+
+/* Dark Green Theme */
+.dark[data-theme="green"] {
+  --primary: #22c55e;
+  --primary-hover: #16a34a;
+  --primary-foreground: #ffffff;
+  --sidebar-bg: #0f2a1f;
+  --header-bg: #0f2a1f;
+  --card-bg: #0f2a1f;
+  --border-color: #0a1f14;
+  --main-bg: #0b1f16;
+}
+
+/* Dark Purple Theme */
+.dark[data-theme="purple"] {
+  --primary: #7f13ec;
+  --primary-hover: #7f13ec;
+  --primary-foreground: #ffffff;
+  --sidebar-bg: #1f0d2b;
+  --header-bg: #1f0d2b;
+  --card-bg: #1f0d2b;
+  --border-color: #101828;
+  --main-bg: #191022;
+}
+
+/* Dark Blue Theme */
+.dark[data-theme="blue"] {
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-foreground: #ffffff;
+  --sidebar-bg: #0b1e3b;
+  --header-bg: #0b1e3b;
+  --card-bg: #0b1e3b;
+  --border-color: #0a1a2f;
+  --main-bg: #0c1f40;
+}
+
+/* Dark Orange Theme */
+.dark[data-theme="orange"] {
+  --primary: #ea580c;
+  --primary-hover: #c2410c;
+  --primary-foreground: #ffffff;
+  --sidebar-bg: #2a0f0b;
+  --header-bg: #2a0f0b;
+  --card-bg: #2a0f0b;
+  --border-color: #1a0a08;
+  --main-bg: #1f0c0b;
+}
+
+/* Dark Red Theme */
+.dark[data-theme="red"] {
+  --primary: #ef4444;
+  --primary-hover: #b91c1c;
+  --primary-foreground: #ffffff;
+  --sidebar-bg: #2b0d0d;
+  --header-bg: #2b0d0d;
+  --card-bg: #2b0d0d;
+  --border-color: #1a0a0a;
+  --main-bg: #1f0b0b;
+}
+
+/* Dark Pink Theme */
+.dark[data-theme="pink"] {
+  --primary: #ec4899;
+  --primary-hover: #be185d;
+  --primary-foreground: #ffffff;
+  --sidebar-bg: #2b0d1f;
+  --header-bg: #2b0d1f;
+  --card-bg: #2b0d1f;
+  --border-color: #1a0a14;
+  --main-bg: #1f0b22;
+}
+
+/* Dark Teal Theme */
+.dark[data-theme="teal"] {
+  --primary: #14b8a6;
+  --primary-hover: #0d9488;
+  --primary-foreground: #ffffff;
+  --sidebar-bg: #0d2b28;
+  --header-bg: #0d2b28;
+  --card-bg: #0d2b28;
+  --border-color: #061818;
+  --main-bg: #071f1d;
+}
+
+/* Dark Yellow Theme */
+.dark[data-theme="yellow"] {
+  --primary: #facc15;
+  --primary-hover: #eab308;
+  --primary-foreground: #000000;
+  --sidebar-bg: #2b2a0d;
+  --header-bg: #2b2a0d;
+  --card-bg: #2b2a0d;
+  --border-color: #1a1908;
+  --main-bg: #1f1e0b;
+}
+
 /* ----------------------------------------------------
    Tailwind CSS Theme Bindings
 ---------------------------------------------------- */
@@ -47,46 +170,14 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-primary-hover: var(--primary-hover);
-
+  --color-sidebar-bg: var(--sidebar-bg);
+  --color-header-bg: var(--header-bg);
+  --color-main-bg: var(--main-bg);
+  --color-border-color: var(--border-color);
+  --color-card-bg: var(--card-bg);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
-}
 
-/* ----------------------------------------------------
-   Dark Mode Variables
----------------------------------------------------- */
-.dark {
-  --background: #191022;
-  --foreground: #ededed;
-
-  /* Dark Mode Primary can be slightly lighter */
-  --primary: #9a45ff;
-  --primary-hover: #7f13ec;
-
-  --primary-foreground: #ffffff;
-}
-
-
-/* Dark Green */
-.dark[data-theme="green"] {
-  --primary: #16a34a;
-  --primary-hover: #15803d;
-}
-
-/* Dark Purple */
-.dark[data-theme="purple"] {
-  --primary: #9333ea;
-  --primary-hover: #7e22ce;
-}
-
-.dark[data-theme="blue"] {
-  --primary: #2563eb;
-  --primary-hover: #1d4ed8;
-}
-
-.dark[data-theme="orange"] {
-  --primary: #ea580c;
-  --primary-hover: #c2410c;
 }
 
 /* ----------------------------------------------------
@@ -103,6 +194,7 @@ body {
   from {
     transform: translateX(-100%);
   }
+
   to {
     transform: translateX(0);
   }
@@ -111,4 +203,3 @@ body {
 .animate-slide-in {
   animation: slide-in 0.25s ease-out;
 }
-

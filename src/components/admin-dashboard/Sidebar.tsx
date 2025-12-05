@@ -15,7 +15,7 @@ export default function Sidebar({
     return (
         <div
             className={clsx(
-                "hidden md:flex flex-col transition-all duration-300 bg-[#120A1A] h-screen",
+                "hidden md:flex flex-col transition-all bg-sidebar-bg duration-300 h-screen",
                 collapsed ? "w-20" : "w-64"
             )}
         >
@@ -23,7 +23,7 @@ export default function Sidebar({
             <div className="flex items-center justify-between p-4">
                 {!collapsed && (
                     <div className="flex items-center gap-3  rounded-xl  backdrop-blur-sm ">
-                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary-hover flex items-center justify-center text-white font-bold shadow-lg">
+                        <div className="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center text-white font-bold shadow-lg">
                             PP
                         </div>
 

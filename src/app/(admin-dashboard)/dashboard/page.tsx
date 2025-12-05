@@ -19,7 +19,7 @@ export default function Page() {
 }
 
 const Card = ({ title, value, growth }: any) => (
-  <div className="p-5 rounded-xl bg-[#1A0F27] border border-white/5">
+  <div className="p-5 rounded-xl bg-card-bg border border-border-color">
     <p className="text-sm opacity-70">{title}</p>
     <h2 className="text-3xl font-bold mt-1">{value}</h2>
     <p className="text-green-400 text-sm">{growth}</p>
@@ -27,7 +27,7 @@ const Card = ({ title, value, growth }: any) => (
 );
 
 const GraphCard = ({ title, value, growth }: any) => (
-  <div className="p-5 rounded-xl bg-[#1A0F27] border border-white/5 h-64">
+  <div className="p-5 rounded-xl bg-card-bg border border-border-color h-64">
     <p className="text-sm opacity-70">{title}</p>
     <h2 className="text-2xl font-bold mt-1">{value}</h2>
     <p className="text-green-400 text-sm">{growth}</p>

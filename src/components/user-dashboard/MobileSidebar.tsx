@@ -21,7 +21,7 @@ export default function MobileSidebar({
       />
 
       {/* Sidebar Panel */}
-      <div className="fixed top-0 left-0 h-full w-64 bg-[#120A1A] z-50 p-4 shadow-xl animate-slide-in">
+      <div className="fixed top-0 left-0 h-full w-64 bg-sidebar-bg z-50 p-4 shadow-xl animate-slide-in">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg font-bold">Dashboard</h2>
           <button onClick={onClose}>
